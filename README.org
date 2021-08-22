@@ -1,0 +1,13 @@
+* TravelMate API
+  This is an API used to drive the travelmate web application.
+  The API is built in rust and performs the following functionality:
+  - Itinerary optimization
+  - Destination search
+  - ...and more!
+    
+* Authors
+  Eugene 'marengohue' Rebedailo
+
+* Running
+  If you wish to run the API for the purposes of checking it out or local development, the simplest way to do that is to use docker.
+  This project uses Amazon's ECR to publish dev builds of the containers, access has to be requested.

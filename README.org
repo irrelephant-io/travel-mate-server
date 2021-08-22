@@ -9,5 +9,49 @@
   Eugene 'marengohue' Rebedailo
 
 * Running
-  If you wish to run the API for the purposes of checking it out or local development, the simplest way to do that is to use docker.
-  This project uses Amazon's ECR to publish dev builds of the containers, access has to be requested.
+** In docker
+  If you wish to run the API for the purposes of checking it out or front-end development, the simplest way to do that is to use docker.
+  Use the following command to start a local instance of the application:
+  #+NAME: <docker-compose-up>
+  #+BEGIN_SRC: <bash>
+   # Rebuild the container and start it in background
+   docker-compose up -d --build
+  #+END_SRC
+
+  To stop the instance, use the following command:
+  #+NAME: <docker-compose-down>
+  #+BEGIN_SRC: <bash>
+   docker-compose down
+  #+END_SRC
+
+** Locally
+  If you wish to run the API locally without use of a docker instance (e.g. for development of the API), it might be simpler to run it
+  via the use of locally-installed cargo.
+  
+  The API requires the use of nightly-only features, so add the nightly toolchain.
+  We will also use some extra cargo modules to make the development easier
+  #+NAME: <rustup-toolchain-setup>
+  #+BEGIN_SRC: <bash>
+   rustup toolchain install nightly-x86_64_unknown-linux-gnu
+   cargo install cargo-edit cargo-watch
+  #+END_SRC
+
+  The next step is to setup the default .env file as API relies upon presense of some environment variables to operate.
+  Start with the default .env file and customize in accordance to your environment as needed further.
+  #+NAME: <dotenv-setup>
+  #+BEGIN_SRC: <bash>
+   cp .env.default .env
+  #+END_SRC
+
+  After the initial setup is done, the API can be started using the following watch command. It will get automatically recompiled
+  as source code is changed. The first build can take some time due to it needing to build all of the dependencies.
+  #+NAME: <run-and-watch>
+  #+BEGIN_SRC: <bash>
+   # Watch current solution for changes and recompile/run automatically.
+   cargo watch --exec run
+  #+END_SRC
+  
+  
+  
+   
+

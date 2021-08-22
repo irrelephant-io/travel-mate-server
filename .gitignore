@@ -1,4 +1,9 @@
+# Build output
 /target
+
+# Emacs temp files and backups
 /**/*~
 /**/*#
-    
+
+# local environment vars
+.env

@@ -14,14 +14,12 @@ async fn search(req: web::Json<Option<SearchRequest>>) -> SearchResult<Airport> 
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(||
-                    App::new()
-                    .wrap(Logger::default())
-                    .service(
-                        web::scope("/api")
-                            .service(search)
-                    ))
-        .bind("127.0.0.1:8081")?
-        .run()
-        .await
+    HttpServer::new(|| {
+        App::new()
+            .wrap(Logger::default())
+            .service(web::scope("/api").service(search))
+    })
+    .bind("127.0.0.1:8081")?
+    .run()
+    .await
 }

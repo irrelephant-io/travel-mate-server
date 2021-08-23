@@ -32,5 +32,3 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:pr-$PR_ID .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:pr-$PR_ID
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:pr-$PR_ID"
-
-p

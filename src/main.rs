@@ -17,9 +17,9 @@ async fn search(req: web::Json<Option<SearchRequest>>) -> SearchResult<Airport> 
     SearchResult::from(items, Some(total_count))
 }
 
-#[get("/")]
-async fn index() -> String {
-    "Hello, this is dog!".to_string()
+#[get("/health")]
+async fn health() -> &'static str {
+    "Ok"
 }
 
 fn get_srv_address() -> String {
@@ -38,10 +38,10 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .wrap(Logger::default())
-            .service(index)
             .service(
                 web::scope("/api")
                     .service(search)
+                    .service(health)
             )
     })
     .bind(get_srv_address())?

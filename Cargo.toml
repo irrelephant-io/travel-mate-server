@@ -15,4 +15,5 @@ fuzzy-matcher = "*"
 env_logger = "0.9.0"
 log = "0.4.14"
 dotenv = "0.15.0"
+actix-cors = "0.5.4"
 

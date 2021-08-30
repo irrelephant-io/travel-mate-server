@@ -1,6 +1,7 @@
 extern crate log;
 extern crate dotenv;
 
+use actix_cors::Cors;
 use actix_web::{middleware::Logger, get, post, web, App, HttpServer};
 use models::{Airport, SearchRequest, SearchResult};
 use dotenv::dotenv;
@@ -30,6 +31,13 @@ fn get_srv_address() -> String {
     )
 }
 
+fn build_cors() -> Cors {
+    Cors::default()
+        .allow_any_origin()
+        .allow_any_method()
+        .allow_any_header()
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
@@ -38,6 +46,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .wrap(Logger::default())
+            .wrap(build_cors())
             .service(
                 web::scope("/api")
                     .service(search)

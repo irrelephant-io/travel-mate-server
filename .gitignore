@@ -5,5 +5,8 @@
 /**/*~
 /**/*#
 
+# Incl. hidden ones too
+.#*
+ 
 # local environment vars
 .env

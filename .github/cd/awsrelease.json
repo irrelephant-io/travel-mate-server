@@ -8,6 +8,15 @@
       "name": "travel-mate-server",
       "cpu": 1,
       "image": "885729917217.dkr.ecr.eu-north-1.amazonaws.com/travel-mate-server:latest",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/travel-mate-server",
+          "awslogs-region": "eu-north-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "portMappings": [
         {
           "hostPort": 8080,

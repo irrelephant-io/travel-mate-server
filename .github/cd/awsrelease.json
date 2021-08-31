@@ -4,9 +4,9 @@
   "containerDefinitions": [
     {
       "essential": true,
-      "memory": 256,
+      "memory": 444,
       "name": "travel-mate-server",
-      "cpu": 1,
+      "cpu": 1024,
       "image": "885729917217.dkr.ecr.eu-north-1.amazonaws.com/travel-mate-server:latest",
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -31,7 +31,7 @@
         },
         {
           "name": "SRV_PORT",
-          "value": "8079"
+          "value": "8080"
         },
         {
           "name": "RUST_LOG",

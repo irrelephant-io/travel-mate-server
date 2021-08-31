@@ -1,12 +1,13 @@
 {
-  "ipcMode": null,
-  "executionRoleArn": null,
+  "family": "travel-mate-server",
+  "networkMode": "awsvpc",
   "containerDefinitions": [
     {
-      "dnsSearchDomains": null,
-      "environmentFiles": null,
-      "logConfiguration": null,
-      "entryPoint": null,
+      "essential": true,
+      "memory": 256,
+      "name": "travel-mate-server",
+      "cpu": 1,
+      "image": "885729917217.dkr.ecr.eu-north-1.amazonaws.com/travel-mate-server:latest",
       "portMappings": [
         {
           "hostPort": 8080,
@@ -14,66 +15,20 @@
           "containerPort": 8080
         }
       ],
-      "command": null,
-      "linuxParameters": null,
-      "cpu": 0,
       "environment": [
-        {
-          "name": "RUST_LOG",
-          "value": "info"
-        },
         {
           "name": "SRV_HOST",
           "value": "0.0.0.0"
         },
         {
           "name": "SRV_PORT",
-          "value": "8080"
+          "value": "8079"
+        },
+        {
+          "name": "RUST_LOG",
+          "value": "INFO"
         }
-      ],
-      "resourceRequirements": null,
-      "ulimits": null,
-      "dnsServers": null,
-      "mountPoints": [],
-      "workingDirectory": null,
-      "secrets": null,
-      "dockerSecurityOptions": null,
-      "memory": 256,
-      "memoryReservation": null,
-      "volumesFrom": [],
-      "stopTimeout": null,
-      "image": "885729917217.dkr.ecr.eu-north-1.amazonaws.com/travel-mate-server:latest",
-      "startTimeout": null,
-      "firelensConfiguration": null,
-      "dependsOn": null,
-      "disableNetworking": null,
-      "interactive": null,
-      "healthCheck": null,
-      "essential": true,
-      "links": null,
-      "hostname": null,
-      "extraHosts": null,
-      "pseudoTerminal": null,
-      "user": null,
-      "readonlyRootFilesystem": null,
-      "dockerLabels": null,
-      "systemControls": null,
-      "privileged": null,
-      "name": "travel-mate-server"
+      ]
     }
-  ],
-  "placementConstraints": [],
-  "memory": "256",
-  "taskRoleArn": null,
-  "compatibilities": [
-    "EXTERNAL",
-    "EC2"
-  ],
-  "family": "travel-mate-server-task",
-  "pidMode": null,
-  "networkMode": null,
-  "cpu": "1024",
-  "inferenceAccelerators": null,
-  "proxyConfiguration": null,
-  "volumes": []
+  ]
 }
